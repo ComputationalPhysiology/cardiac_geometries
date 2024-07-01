@@ -596,11 +596,7 @@ def create_lv_ellipsoid(
     if create_fibers:
         from .fibers._lv_ellipsoid import create_microstructure
 
-        ffun = (
-            geometry.marker_functions.efun
-            if axisymmetric
-            else geometry.marker_functions.ffun
-        )
+        ffun = geometry.marker_functions.efun if axisymmetric else geometry.marker_functions.ffun
         create_microstructure(
             mesh=geometry.mesh,
             ffun=ffun,

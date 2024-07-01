@@ -40,9 +40,7 @@ def get_level(regions, mu):
 
 
 def get_sector(regions, theta):
-    if not (
-        np.count_nonzero(regions.T[1] <= regions.T[2]) >= 0.5 * np.shape(regions)[0]
-    ):
+    if not (np.count_nonzero(regions.T[1] <= regions.T[2]) >= 0.5 * np.shape(regions)[0]):
         raise ValueError("Surfaces are flipped")
 
     sectors = []
@@ -154,5 +152,4 @@ def lv_aha(
     return geometry
 
 
-def biv_aha():
-    ...
+def biv_aha(): ...

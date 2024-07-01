@@ -10,7 +10,6 @@ def full_arctangent(x, y):
 
 
 def cartesian_to_prolate_ellipsoidal(x, y, z, a):
-
     b1 = np.sqrt((x + a) ** 2 + y**2 + z**2)
     b2 = np.sqrt((x - a) ** 2 + y**2 + z**2)
 
@@ -115,7 +114,6 @@ def strain_region_number(T, regions):
 
 
 def get_level(regions, mu):
-
     A = np.intersect1d(
         np.where((regions.T[3] <= mu))[0],
         np.where((mu <= regions.T[0]))[0],
@@ -127,15 +125,11 @@ def get_level(regions, mu):
 
 
 def get_sector(regions, theta):
-
-    if not (
-        np.count_nonzero(regions.T[1] <= regions.T[2]) >= 0.5 * np.shape(regions)[0]
-    ):
+    if not (np.count_nonzero(regions.T[1] <= regions.T[2]) >= 0.5 * np.shape(regions)[0]):
         raise ValueError("Surfaces are flipped")
 
     sectors = []
     for i, r in enumerate(regions):
-
         if r[1] == r[2]:
             sectors.append(i)
         else:

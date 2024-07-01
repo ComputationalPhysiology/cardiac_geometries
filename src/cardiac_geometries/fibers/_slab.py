@@ -17,7 +17,6 @@ def laplace(
     markers: Dict[str, Tuple[int, int]],
     function_space: str = "P_1",
 ):
-
     endo_marker = markers["Y0"][0]
     epi_marker = markers["Y1"][0]
 
@@ -129,8 +128,7 @@ def compute_system(
     scalar_dofs = [
         dof
         for dof in range(end - start)
-        if V.dofmap().local_to_global_index(dof)
-        not in V.dofmap().local_to_global_unowned()
+        if V.dofmap().local_to_global_index(dof) not in V.dofmap().local_to_global_unowned()
     ]
 
     fiber = dolfin.Function(Vv)
